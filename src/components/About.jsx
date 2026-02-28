@@ -34,7 +34,7 @@ const About = () => {
           <p className="final-line">🚀 I love turning ideas into code, data into insights, and challenges into solutions.
             Let’s build something amazing!</p>
 
-          <a href="mailto:yadavjatin44285@gmail.com" className="btn">
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=yadavjatin44285@gmail.com" className="btn" target="_blank">
             Email Me{" "}
             <i
               className="fa-solid fa-envelope"

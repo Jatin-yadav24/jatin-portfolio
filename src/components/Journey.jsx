@@ -4,7 +4,7 @@ const Journey = () => {
   return (
     <section id="journey">
       <h2 className="section-title">
-        My <span>Journey</span>
+       <span>Journey</span>
       </h2>
       <div className="timeline-container">
         <div className="timeline-item">

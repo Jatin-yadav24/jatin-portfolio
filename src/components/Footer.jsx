@@ -72,7 +72,7 @@ const Footer = () => {
             <i className="fa-solid fa-envelope"></i>
           </a>
         </div>
-        <p>&copy; 2024 Jatin Yadav. All rights reserved.</p>
+        <p>&copy; 2026 Jatin Yadav. All rights reserved.</p>
       </footer>
 
       {/* Back to Top Button */}

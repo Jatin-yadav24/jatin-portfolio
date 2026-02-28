@@ -89,7 +89,7 @@ const Projects = () => {
   return (
     <section id="projects">
       <h2 className="section-title">
-        My <span>Projects</span>
+         <span>Projects</span>
       </h2>
 
       {/* Projects Grid */}
