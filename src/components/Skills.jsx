@@ -17,7 +17,11 @@ const Skills = () => {
     { name: "JavaScript (ES6+)", icon: "fa-js" },
     { name: "React.js", icon: "fa-react" },
     { name: "Bootstrap", icon: "fa-bootstrap" },
+    // --- Nayi API Skill yahan add ki gayi hai ---
+    { name: "REST APIs", icon: "fa-server", isSolid: true }, 
     { name: "Git & GitHub", icon: "fa-git-alt" },
+    // --- Nayi VS Code Skill yahan add ki gayi hai ---
+    { name: "VS Code & Debugging", icon: "fa-laptop-code", isSolid: true },
     { name: "Responsive UI", icon: "fa-mobile-screen", isSolid: true },
     { name: "Cross-Browser", icon: "fa-window-restore", isSolid: true },
   ];
@@ -35,6 +39,7 @@ const Skills = () => {
                 className={`${skill.isSolid ? "fa-solid" : "fa-brands"} ${skill.icon}`}
               ></i>
             </div>
+            {/* yahan h3 ke andar skill ka naam aayega */}
             <h3>{skill.name}</h3>
           </div>
         ))}

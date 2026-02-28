@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 const Hero = () => {
   const [text, setText] = useState("");
-  const textArray = ["Front-End Developer", "React Developer", "UI Enthusiast"];
+  const textArray = ["Front-End Developer", "React Developer", "Modern Web Developer"];
 
   useEffect(() => {
     let textIndex = 0;

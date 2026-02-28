@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 
 const Projects = () => {
-  const [filter, setFilter] = useState("all");
-
   useEffect(() => {
+    // Initialize Vanilla Tilt for 3D effect on cards
     if (window.VanillaTilt) {
       window.VanillaTilt.init(document.querySelectorAll(".project-card"), {
         max: 5,
@@ -15,31 +14,75 @@ const Projects = () => {
   const projectsData = [
     {
       id: 1,
-      category: "web",
       title: "Image Gallery Web App",
+      image: "./projects/gallery.png",
       icon: "fa-image",
       isRegular: true,
       desc: "A responsive image gallery application featuring dynamic image filtering and a full-screen preview mode.",
+      tags: ["HTML5", "CSS3", "JavaScript"],
       link: "https://jatin-yadav24.github.io/codealpha_tasks1/",
+      github: "https://github.com/jatin-yadav24/codealpha_tasks1",
       bg: "linear-gradient(135deg, #1e293b, var(--primary))",
     },
     {
       id: 2,
-      category: "web",
       title: "Calculator Web App",
+      image: "./projects/calc.png",
       icon: "fa-calculator",
+      isRegular: true,
       desc: "A real-time arithmetic calculator built using JavaScript for fast and accurate browser-based calculations.",
+      tags: ["HTML5", "CSS3", "JavaScript"],
       link: "https://jatin-yadav24.github.io/codealpha_tasks2/",
+      github: "https://github.com/jatin-yadav24/codealpha_tasks2",
       bg: "linear-gradient(135deg, #ff9a9e, #fecfef)",
     },
     {
       id: 3,
-      category: "web",
-      title: "Personal Portfolio Website",
-      icon: "fa-laptop-code",
-      desc: "A project showcase website highlighting my frontend skills, experience, and projects.",
-      link: "https://jatin-yadav24.github.io/jatin_portfolio/",
-      bg: "linear-gradient(135deg, #a18cd1, #fbc2eb)",
+      title: "Amazon UI Clone",
+      image: "./projects/amazon.png",
+      icon: "fa-cart-shopping",
+      isRegular: true,
+      desc: "A pixel-perfect UI clone of the Amazon homepage. Built to demonstrate proficiency in complex CSS layouts, Flexbox, and responsive web design.",
+      tags: ["HTML5", "CSS3", "Flexbox"],
+      link: "https://jatin-yadav24.github.io/Amazon-clone/",
+      github: "https://github.com/Jatin-yadav24/Amazon-clone",
+      bg: "linear-gradient(135deg, #f6d365 0%, #fda085 100%)",
+    },
+    {
+      id: 4,
+      title: "BookLift - Premium Bookstore",
+      image: "./projects/book.png",
+      icon: "fa-book-open",
+      isRegular: true,
+      desc: "A premium, fully responsive online bookstore UI. Features a pure CSS dark mode toggle, live category filtering, and modern 3D hover effects.",
+      tags: ["HTML5", "CSS3", "Advanced CSS"],
+      link: "https://jatin-yadav24.github.io/BookStrore/",
+      github: "https://github.com/jatin-yadav24/BookStrore",
+      bg: "linear-gradient(135deg, #0f172a 0%, #14b8a6 100%)",
+    },
+    {
+      id: 5,
+      title: "Live Weather App",
+      image: "", // अगर इमेज है तो यहाँ डालें, वरना आइकॉन दिखेगा
+      icon: "fa-cloud-sun-rain",
+      isRegular: false,
+      desc: "A dynamic weather application that fetches real-time climate data from OpenWeather API based on user search.",
+      tags: ["React.js", "REST API", "Axios"],
+      link: "#", // अपना लाइव लिंक यहाँ डालें
+      github: "#", // अपना गिटहब लिंक यहाँ डालें
+      bg: "linear-gradient(135deg, #84fab0, #8fd3f4)",
+    },
+    {
+      id: 6,
+      title: "Netflix UI Clone",
+      image: "", // इसकी इमेज बनाकर डालना बहुत अच्छा लगेगा
+      icon: "fa-film",
+      isRegular: false,
+      desc: "A high-fidelity Netflix homepage clone featuring a responsive movie grid layout and trailer preview functionality.",
+      tags: ["HTML5", "CSS3", "JavaScript"],
+      link: "#",
+      github: "#",
+      bg: "linear-gradient(135deg, #e50914 0%, #000000 100%)", // Netflix Red theme
     },
   ];
 
@@ -48,43 +91,122 @@ const Projects = () => {
       <h2 className="section-title">
         My <span>Projects</span>
       </h2>
-      <div className="filter-btns">
-        <button
-          className={`filter-btn ${filter === "all" ? "active" : ""}`}
-          onClick={() => setFilter("all")}
-        >
-          All Projects
-        </button>
-        <button
-          className={`filter-btn ${filter === "web" ? "active" : ""}`}
-          onClick={() => setFilter("web")}
-        >
-          Web Apps
-        </button>
-      </div>
+
+      {/* Projects Grid */}
       <div className="projects-grid">
         {projectsData.map((project) => (
-          <div
-            key={project.id}
-            className="project-card glass-card"
-            style={{
-              display:
-                filter === "all" || filter === project.category
-                  ? "flex"
-                  : "none",
-            }}
-          >
-            <div className="project-img" style={{ background: project.bg }}>
-              <i
-                className={`${project.isRegular ? "fa-regular" : "fa-solid"} ${project.icon}`}
-              ></i>
+          <div key={project.id} className="project-card glass-card">
+            {/* Project Image/Icon area */}
+            <div
+              className="project-img"
+              style={{ background: project.bg, padding: 0, overflow: "hidden" }}
+            >
+              {project.image ? (
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    objectPosition: "top",
+                  }}
+                />
+              ) : (
+                <i
+                  className={`${project.isRegular ? "fa-regular" : "fa-solid"} ${project.icon}`}
+                ></i>
+              )}
             </div>
-            <div className="project-info">
-              <h3>{project.title}</h3>
-              <p>{project.desc}</p>
-              <div className="project-links">
-                <a href={project.link} target="_blank" rel="noreferrer">
-                  View Live <i className="fa-solid fa-arrow-right"></i>
+
+            {/* Project Details */}
+            <div
+              className="project-info"
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                flexGrow: 1,
+                padding: "2rem",
+              }}
+            >
+              <h3 style={{ marginBottom: "0.8rem", fontSize: "1.4rem" }}>
+                {project.title}
+              </h3>
+              <p
+                style={{
+                  color: "var(--text-gray)",
+                  fontSize: "1rem",
+                  marginBottom: "1rem",
+                  flexGrow: 1,
+                }}
+              >
+                {project.desc}
+              </p>
+
+              {/* Tech Stack Tags */}
+              <div
+                style={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  gap: "8px",
+                  marginBottom: "1.5rem",
+                }}
+              >
+                {project.tags.map((tag, i) => (
+                  <span
+                    key={i}
+                    style={{
+                      fontSize: "0.8rem",
+                      padding: "4px 10px",
+                      backgroundColor: "rgba(37, 99, 235, 0.1)",
+                      color: "var(--primary)",
+                      borderRadius: "20px",
+                      fontWeight: "600",
+                      border: "1px solid rgba(37, 99, 235, 0.2)",
+                    }}
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              {/* Links (Live + GitHub) */}
+              <div
+                className="project-links"
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                }}
+              >
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  style={{
+                    color: "var(--primary)",
+                    fontWeight: "600",
+                    textDecoration: "none",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "5px",
+                  }}
+                >
+                  Live Demo{" "}
+                  <i className="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  style={{
+                    color: "var(--text-color)",
+                    fontSize: "1.2rem",
+                    transition: "0.3s",
+                  }}
+                  title="View Source Code"
+                >
+                  <i className="fa-brands fa-github"></i>
                 </a>
               </div>
             </div>
